@@ -2,7 +2,7 @@
 #include <QHBoxLayout>
 
 MainWindow::MainWindow(QWidget *parent):BWidget(parent){
-	close_button=new BButton(tr("close"));
+	close_button=new QPushButton(tr("close"));
 	connect(close_button,SIGNAL(clicked()),SLOT(close()));
 
 	opacity_slider=new QSlider(Qt::Horizontal);

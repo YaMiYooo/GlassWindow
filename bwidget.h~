@@ -2,6 +2,7 @@
 #define BWIDGET_H 
 
 #include "bbutton.h"
+#include <QPaintEvent>
 #include <QBoxLayout>
 #include <QtDebug>
 

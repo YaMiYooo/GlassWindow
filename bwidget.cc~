@@ -47,13 +47,13 @@ void BWidget::Init(WindowType type){
 			"");
 
 	min_button=new BButton(tr("v"));
-//	min_button->setStyleSheet(button_style);
+	min_button->setStyleSheet(button_style);
 	connect(min_button,SIGNAL(clicked()),SLOT(showMinimized()));
 	max_button=new BButton(tr("^"));
-//	max_button->setStyleSheet(button_style);
+	max_button->setStyleSheet(button_style);
 	connect(max_button,SIGNAL(clicked()),SLOT(MaxOrNormalSlot()));
 	close_button=new BButton(tr("X"));
-//	close_button->setStyleSheet(button_style);
+	close_button->setStyleSheet(button_style);
 	connect(close_button,SIGNAL(clicked()),SLOT(close()));
 
 	QHBoxLayout *title_buttons_layout=new QHBoxLayout;

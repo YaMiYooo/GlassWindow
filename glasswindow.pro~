@@ -5,7 +5,6 @@ HEADERS += bwidget.h\
 	mainwindow.h
 
 SOURCES += bwidget.cc\
-	bbutton.cc\
 	mainwindow.cc\
 	main.cc
 
