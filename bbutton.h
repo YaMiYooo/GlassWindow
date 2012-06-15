@@ -13,6 +13,7 @@ class BButton:public QPushButton{ Q_OBJECT
 		explicit BButton(QWidget *parent=0);
 		explicit BButton(QString text,QWidget *parent=0);
 		~BButton();
+
 	protected:
 		void Init();
 		void enterEvent(QEvent *event);

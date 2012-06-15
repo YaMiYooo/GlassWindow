@@ -38,6 +38,7 @@ void BButton::Init(){
 			"QPushButton{"
 			"background:transparent;"
 			"color:black;"
+			"font-weight:bold;"
 			"border:none;"
 			"}"
 			""
