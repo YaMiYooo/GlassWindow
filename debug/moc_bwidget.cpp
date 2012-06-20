@@ -33,19 +33,20 @@ static const uint qt_meta_data_BWidget[] = {
        9,    8,    8,    8, 0x08,
 
  // enums: name, flags, count, data
-      27, 0x0,    3,   23,
+      27, 0x0,    4,   23,
 
  // enum data: key, value
       38, uint(BWidget::Normal),
       45, uint(BWidget::Dialog),
       52, uint(BWidget::Popup),
+      58, uint(BWidget::Frame),
 
        0        // eod
 };
 
 static const char qt_meta_stringdata_BWidget[] = {
     "BWidget\0\0MaxOrNormalSlot()\0WindowType\0"
-    "Normal\0Dialog\0Popup\0"
+    "Normal\0Dialog\0Popup\0Frame\0"
 };
 
 void BWidget::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)

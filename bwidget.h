@@ -8,7 +8,7 @@
 class BWidget:public QWidget{ Q_OBJECT
 	Q_ENUMS(WindowType)
 	public:
-		enum WindowType { Normal,Dialog,Popup };
+		enum WindowType { Normal,Dialog,Popup,Frame };
 		explicit BWidget(QWidget *parent=0);
 		explicit BWidget(WindowType type,QWidget *parent=0);
 		~BWidget();

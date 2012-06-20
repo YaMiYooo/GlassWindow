@@ -1,6 +1,7 @@
 #include "bwidget.h"
 #include <QPainter>
 #include <QPalette>
+#include <QLabel>
 
 BWidget::BWidget(QWidget *parent):QWidget(parent){
 	Init();
@@ -47,35 +48,49 @@ void BWidget::Init(WindowType type){
 			"");
 
 	min_button=new BButton(tr("v"));
-//	min_button->setStyleSheet(button_style);
+	min_button->setFixedSize(24,24);
 	connect(min_button,SIGNAL(clicked()),SLOT(showMinimized()));
 	max_button=new BButton(tr("^"));
-//	max_button->setStyleSheet(button_style);
+	max_button->setFixedSize(24,24);
 	connect(max_button,SIGNAL(clicked()),SLOT(MaxOrNormalSlot()));
 	close_button=new BButton(tr("X"));
-//	close_button->setStyleSheet(button_style);
+	close_button->setFixedSize(24,24);
 	connect(close_button,SIGNAL(clicked()),SLOT(close()));
 
 	QHBoxLayout *title_buttons_layout=new QHBoxLayout;
+	title_buttons_layout->addWidget(min_button);
+	title_buttons_layout->addWidget(max_button);
+	title_buttons_layout->addWidget(close_button);
+
+	corner_buttons=new QWidget(this);
+	corner_buttons->setLayout(title_buttons_layout);
 	switch(type){
 		case Normal:
-			title_buttons_layout->addWidget(min_button);
-			title_buttons_layout->addWidget(max_button);
-			title_buttons_layout->addWidget(close_button);
+			corner_buttons->resize(90,35);
 			break;
 		case Dialog:
-			title_buttons_layout->addWidget(min_button);
-			title_buttons_layout->addWidget(close_button);
+			max_button->hide();
+			corner_buttons->resize(60,35);
 			break;
 		case Popup:
-			title_buttons_layout->addWidget(close_button);
+			min_button->hide();
+			max_button->hide();
+			corner_buttons->resize(30,35);
+			break;
+		case Frame:
+			min_button->hide();
+			max_button->hide();
+			close_button->hide();
+			corner_buttons->resize(5,35);
 			break;
 		default:
 			qDebug()<<"unknown window type"<<endl;
 			break;
 	}
-	corner_buttons=new QWidget(this);
-	corner_buttons->setLayout(title_buttons_layout);
+
+	QLabel *label=new QLabel;
+	label->setText(QString::number(corner_buttons->width()));
+	label->show();
 
 	this->setWindowFlags(Qt::FramelessWindowHint);
 	this->setAttribute(Qt::WA_TranslucentBackground);
@@ -108,7 +123,7 @@ void BWidget::mousePressEvent(QMouseEvent *event){
 void BWidget::mouseMoveEvent(QMouseEvent *event){
 	QWidget::mouseMoveEvent(event);
 
-	if(event->buttons()==Qt::LeftButton){
+	if(event->buttons()==Qt::LeftButton && !this->isMaximized()){
 		QPoint new_point=event->globalPos();
 		QPoint distance=mapToParent(new_point-old_point);
 		this->move(distance);
