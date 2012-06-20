@@ -37,7 +37,7 @@ void BButton::Init(){
 	this->setStyleSheet(""
 			"QPushButton{"
 			"background:transparent;"
-			"color:black;"
+			"color:#000000;"
 			"font-weight:bold;"
 			"border:none;"
 			"}"
