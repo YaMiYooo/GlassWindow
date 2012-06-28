@@ -1,5 +1,6 @@
 #include "bwidget.h"
 #include <QPainter>
+#include <QBitmap>
 
 BWidget::BWidget(QWidget *parent):QWidget(parent){
 	background_opacity=1.0;
@@ -22,6 +23,7 @@ void BWidget::paintEvent(QPaintEvent *event){
 	painter.setOpacity(background_opacity);
 	painter.drawPixmap(0,0,*p);
 	painter.end();
+	setMask(p->mask());
 	delete p;
 }
 

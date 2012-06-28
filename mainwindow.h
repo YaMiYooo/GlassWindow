@@ -2,6 +2,7 @@
 #define MAINWINDOW_H 
 
 #include "bwidget.h"
+#include <QDialog>
 #include <QPushButton>
 #include <QSlider>
 
