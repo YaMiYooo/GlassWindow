@@ -5,6 +5,7 @@
 #include <QDialog>
 #include <QPushButton>
 #include <QSlider>
+#include <QLabel>
 
 class MainWindow:public BWidget{ Q_OBJECT 
 	public:
@@ -12,8 +13,9 @@ class MainWindow:public BWidget{ Q_OBJECT
 	private slots:
 		void SetWindowOpacity(int value);
 	private:
-		QPushButton *close_button;
+		BButton *close_button;
 		QSlider *opacity_slider;
+		QLabel *alpha_label;
 };
 
 #endif
