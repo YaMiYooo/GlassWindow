@@ -27,6 +27,7 @@ BWidget::~BWidget(){
 void BWidget::Init(WindowType type){
 	background_opacity=1.0;
 	color=Qt::transparent;
+	title="bwidget";
 
 	background_pix=new QPixmap;
 	background_pix->load("./images/bg.png");
@@ -99,9 +100,13 @@ void BWidget::paintEvent(QPaintEvent *event){
 	*p=background_pix->scaled(window_rect.width(),window_rect.height(),Qt::IgnoreAspectRatio,Qt::SmoothTransformation);
 
 	QPainter painter(this);
+	/* 画背景 */
 	painter.setOpacity(background_opacity);
 	painter.drawPixmap(0,0,*p);
 	painter.fillRect(0,0,window_rect.width(),window_rect.height(),color);
+	/* 画标题 */
+	painter.setFont(QFont("",-1,75));
+	painter.drawText(5,25,title);
 	painter.end();
 	setMask(p->mask());
 	delete p;
@@ -160,4 +165,8 @@ QColor BWidget::GetColor(){
 
 int BWidget::GetColorAlpha(){
 	return color.alpha();
+}
+
+void BWidget::SetWindowTitle(QString title_string){
+	title=title_string;
 }

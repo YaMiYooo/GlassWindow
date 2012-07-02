@@ -15,6 +15,7 @@ class BWidget:public QWidget{ Q_OBJECT
 		virtual void SetBackgroundOpacity(qreal opacity);
 		virtual void SetBackgroundColor(QColor color);
 		virtual void SetColorOpacity(int alpha);
+		void SetWindowTitle(QString title_string);
 		QColor GetColor();
 		int GetColorAlpha();
 	protected:
@@ -37,6 +38,7 @@ class BWidget:public QWidget{ Q_OBJECT
 		QWidget *corner_buttons;
 
 		QRect window_rect;
+		QString title;
 };
 
 #endif

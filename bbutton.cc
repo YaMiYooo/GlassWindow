@@ -47,6 +47,7 @@ void BButton::Init(){
 			"color:red;"
 			"}"
 			"");
+	this->setFocusPolicy(Qt::NoFocus);
 }
 
 void BButton::paintEvent(QPaintEvent *event){

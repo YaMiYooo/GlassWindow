@@ -12,8 +12,10 @@ class MainWindow:public BWidget{ Q_OBJECT
 		MainWindow(QWidget *parent=0);
 	private slots:
 		void SetWindowOpacity(int value);
+		void PopupDialogSlot();
 	private:
 		BButton *close_button;
+		BButton *dialog_button;
 		QSlider *opacity_slider;
 		QLabel *alpha_label;
 };
